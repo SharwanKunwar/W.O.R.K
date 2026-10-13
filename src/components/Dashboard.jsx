@@ -28,33 +28,29 @@ export default function Dashboard({ stats, tasks, onViewAll, onFocus, onNote }) 
                 {/* Decorative background */}
                 <div className="pointer-events-none absolute -right-16 -top-24 -z-10 h-64 w-64 rounded-full bg-[#c5d9bc]/40 blur-3xl dark:bg-[#527458]/20" />
 
+
                 {/* Left: 50% text content */}
                 <div className="relative z-10 flex min-w-0 flex-1 flex-col items-start justify-center">
                     <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#d5e2d1] bg-white/60 px-3 py-1.5 dark:border-[#455b47] dark:bg-white/5">
                         <span className="h-1.5 w-1.5 rounded-full bg-[#648b65]" />
                         <span className="text-[10px] font-semibold uppercase tracking-[1.8px] text-[#66806a] dark:text-[#b4ccb2]">
-                            Your daily reset
+                            Your daily focus companion
                         </span>
                     </div>
 
-                    <h2 className="max-w-[440px] font-display text-[clamp(30px,3vw,42px)] font-normal leading-[1.12] tracking-[-1.5px] text-[#26392b] dark:text-[#e4ede2]">
-                        Small steps,
+                    <h2 className="max-w-[520px] font-display text-[clamp(28px,2.8vw,40px)] font-normal leading-[1.15] tracking-[-1.2px] text-[#26392b] dark:text-[#e4ede2]">
+                        Turn a crowded to-do list
                         <br />
-                        <em className="font-normal text-[#668765] dark:text-[#a8cba2]">
-                            real progress.
+                        into <em className="font-normal text-[#668765] dark:text-[#a8cba2]">
+                            steady, meaningful progress.
                         </em>
                     </h2>
 
-                    <p className="mt-4 max-w-[330px] text-[13px] leading-[1.8] text-[#718071] dark:text-[#b3c0b2]">
-                        Make room for what matters. One mindful moment, one meaningful step at a time.
+                    <p className="mt-4 max-w-[400px] text-[13px] leading-[1.8] text-[#718071] dark:text-[#b3c0b2]">
+                        Organize your tasks, protect your time, and build habits that last. Decide what matters most today, work on it without distraction, and end your day with clarity instead of stress.
                     </p>
 
-                    <button
-                        type="button"
-                        className="mt-6 inline-flex items-center gap-3 rounded-full bg-[#304b35] px-5 py-3 text-xs font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#426548] dark:bg-[#b4cfad] dark:text-[#203225]"
-                    >
-                        Find your focus <span aria-hidden="true">→</span>
-                    </button>
+
                 </div>
 
                 {/* Right: 50% video */}
