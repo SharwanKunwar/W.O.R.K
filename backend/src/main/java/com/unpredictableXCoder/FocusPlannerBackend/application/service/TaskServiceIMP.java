@@ -10,7 +10,6 @@ import com.unpredictableXCoder.FocusPlannerBackend.application.enums.ForWhen;
 import com.unpredictableXCoder.FocusPlannerBackend.application.enums.Status;
 import com.unpredictableXCoder.FocusPlannerBackend.application.mapper.TaskMapper;
 import com.unpredictableXCoder.FocusPlannerBackend.application.repository.TaskRepository;
-import com.unpredictableXCoder.FocusPlannerBackend.application.repository.TaskSpecification;
 import com.unpredictableXCoder.FocusPlannerBackend.login.entities.User;
 import com.unpredictableXCoder.FocusPlannerBackend.login.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,8 +29,7 @@ public class TaskServiceIMP implements TaskServiceHelper {
     private final UserRepository userRepository;
     private final TaskMapper mapper;
 
-    private User getAuthenticatedUser()
-    {
+    private User getAuthenticatedUser() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
             String email = ((UserDetails) principal).getUsername();
@@ -121,7 +119,7 @@ public class TaskServiceIMP implements TaskServiceHelper {
     @Override
     public List<TaskResponseDTO> filterTasks(TaskFilterRequest filter) {
         User user = getAuthenticatedUser();
-        List<TaskEntity> tasks = repository.findAll(TaskSpecification.filterBy(filter, user.getId()));
+        List<TaskEntity> tasks = repository.findAllForUser(filter, user.getId());
         return tasks.stream().map(mapper::mapToResponse).toList();
     }
 

@@ -20,10 +20,86 @@ export default function Dashboard({ stats, tasks, onViewAll, onFocus, onNote }) 
 
     return (
         <motion.div className="space-y-5" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-            <section className="glass-hero soft-float flex min-h-[155px] items-center justify-between overflow-hidden rounded-[22px] border border-white/60 bg-gradient-to-r from-[#edf3eb] via-[#f7f8f3] to-[#e5efe2] px-[29px] py-[25px] transition-colors dark:border-[#344237] dark:from-[#27352b] dark:via-[#222f27] dark:to-[#1f2c24] max-[560px]:min-h-[140px] max-[560px]:px-[17px] max-[560px]:py-[21px]">
-                <div><span className="text-[10px] font-bold tracking-[1px] text-[#708574] dark:text-[#a8c1ab]">A CLEARER DAY STARTS HERE</span><h2 className="mb-1 mt-2 font-display text-[28px] font-normal text-[#27392e] dark:text-[#e2ebe2] max-[560px]:max-w-[255px] max-[560px]:text-[23px]">Small steps, <em className="font-normal text-[#507459] dark:text-[#a4c99e]">real progress.</em></h2><p className="m-0 text-xs text-[#748276] dark:text-[#adbaae] max-[560px]:max-w-[240px] max-[560px]:leading-[1.55]">Choose what matters, then give it your full attention.</p></div>
-                <div className="flex flex-col items-center gap-2.5 pr-[21px] text-[#52745a] max-[560px]:pr-0"><Sparkles size={19} /><span className="text-[10px] max-[560px]:max-w-[70px] max-[560px]:text-center">{new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</span></div>
+
+
+
+            <section className="group relative isolate flex min-h-[270px] items-stretch gap-6 overflow-hidden rounded-[28px] border border-[#dce7d9] bg-gradient-to-br from-[#f4f7ef] via-[#edf3e9] to-[#dfeade] p-6 shadow-[0_12px_40px_rgba(48,75,51,0.06)] transition-all duration-500 dark:border-[#344638] dark:from-[#253329] dark:via-[#202e25] dark:to-[#293c2d] max-[640px]:flex-col">
+
+                {/* Decorative background */}
+                <div className="pointer-events-none absolute -right-16 -top-24 -z-10 h-64 w-64 rounded-full bg-[#c5d9bc]/40 blur-3xl dark:bg-[#527458]/20" />
+
+                {/* Left: 50% text content */}
+                <div className="relative z-10 flex min-w-0 flex-1 flex-col items-start justify-center">
+                    <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#d5e2d1] bg-white/60 px-3 py-1.5 dark:border-[#455b47] dark:bg-white/5">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#648b65]" />
+                        <span className="text-[10px] font-semibold uppercase tracking-[1.8px] text-[#66806a] dark:text-[#b4ccb2]">
+                            Your daily reset
+                        </span>
+                    </div>
+
+                    <h2 className="max-w-[440px] font-display text-[clamp(30px,3vw,42px)] font-normal leading-[1.12] tracking-[-1.5px] text-[#26392b] dark:text-[#e4ede2]">
+                        Small steps,
+                        <br />
+                        <em className="font-normal text-[#668765] dark:text-[#a8cba2]">
+                            real progress.
+                        </em>
+                    </h2>
+
+                    <p className="mt-4 max-w-[330px] text-[13px] leading-[1.8] text-[#718071] dark:text-[#b3c0b2]">
+                        Make room for what matters. One mindful moment, one meaningful step at a time.
+                    </p>
+
+                    <button
+                        type="button"
+                        className="mt-6 inline-flex items-center gap-3 rounded-full bg-[#304b35] px-5 py-3 text-xs font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#426548] dark:bg-[#b4cfad] dark:text-[#203225]"
+                    >
+                        Find your focus <span aria-hidden="true">→</span>
+                    </button>
+                </div>
+
+                {/* Right: 50% video */}
+                <div className="relative min-h-[270px] min-w-0 flex-1 overflow-hidden rounded-[22px] border border-white/70 bg-[#dce8d8] shadow-[0_18px_40px_rgba(43,66,44,0.16)] dark:border-white/10 dark:bg-[#304233] max-[640px]:min-h-[220px]">
+
+
+
+                    <video
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        poster="/images/mindful-morning.jpg"
+                    >
+                        <source src="/video/vid.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+
+                    {/* Video overlay */}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#17251b]/65 via-transparent to-black/5" />
+
+                    {/* Top label */}
+                    <div className="absolute left-4 top-4 rounded-full border border-white/30 bg-black/20 px-3 py-1.5 backdrop-blur-md">
+                        <span className="text-[9px] font-semibold uppercase tracking-[1.5px] text-white">
+                            A moment for you
+                        </span>
+                    </div>
+
+                    {/* Bottom caption */}
+                    <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
+                        <div>
+                            <p className="text-[10px] uppercase tracking-[1.5px] text-white/70">
+                                Slow down · Breathe
+                            </p>
+                            <p className="mt-1 text-sm font-medium text-white">
+                                Find your quiet moment
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </section>
+
+
+
             <QuoteOfDay />
             <section className="mb-[25px] grid grid-cols-4 gap-[13px] max-[1050px]:gap-[9px] max-[560px]:mb-[23px] max-[560px]:grid-cols-2 max-[560px]:gap-2" aria-label="Task summary">
                 <StatCard label="All tasks" value={stats.totalTasks ?? 0} icon={<ListTodo size={19} />} tint="green" />
